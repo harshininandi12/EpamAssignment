@@ -1,0 +1,55 @@
+<!--<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Login Page</title>
+    
+</head>
+<body>
+
+    <div class="logincontent">
+        <div class="loginheading">
+            Login
+        </div>
+        <label for="txtUserName"></label>
+            <label>Username:</label>
+            <input type="text" id="txtUserName" [(ngModel)]="user.empId"/>
+            <label>Password:</label>
+            <input type="password" id="txtPassword" [(ngModel)] ="user.password"/>
+          
+        <div class="loginremember">
+            <input type="checkbox" id="chbRemember" name="chbRemember" /><label class="check"
+                for="chbRemember">Remember me next time</label>
+               
+                <button (click)="showUser()" class="loginbtn" id="btnSubmit" >login</button>       
+                 <br/>
+
+            <br/>
+        </div>
+    </div>
+</body>-->
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      
+      
+    <img src="src/assets/handy.png" class="img-circle" alt="Handy Crew" style="width: 50%; height: 50%">
+      <h1>Login Form</h1>
+      <form #loginForm="ngForm" (ngSubmit)="validateUser(loginForm.value)" novalidate>
+        <input type="text" [(ngModel)] = user.empId id="login" class="fadeIn first" name="empId" placeholder="login">
+        <input type="text" [(ngModel)] = user.password id="password" class="fadeIn third" name="password" placeholder="password">
+      </form>
+      <div class="container">
+        <button [disabled]="!loginForm.valid" class="btn btn-success">Login</button>
+            
+        </div>
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Forgot Password?</a>
+      </div>
+      <div *ngIf="loginForm.invalid && (loginForm.dirty || loginForm.touhed)">invalid error occurred</div>
+      <div class="text-danger">
+      <div *ngIf="loginId.errors?.required">Please enter login id..</div>
+      <div *ngIf="password.errors?.minlength">Please enter 4 characters..</div>
+      <div *ngIf="password.errors?.required">Please enter password..</div> 
+      </div>
+    </div>
+  </div>

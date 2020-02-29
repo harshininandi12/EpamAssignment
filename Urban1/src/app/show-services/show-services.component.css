@@ -1,0 +1,10 @@
+h1{
+    margin-left: 70px;
+  }
+  .background {
+    
+    height: 200%; 
+      background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
